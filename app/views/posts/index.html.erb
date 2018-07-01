@@ -1,0 +1,21 @@
+<h1>Xin chao </h1>
+<%= link_to "New Post", new_post_path(@post) %>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Summary</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Public</th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr>
+        <td><%= post.title %></td>
+        <td><%= post.summary %></td>
+        <td><%= post.content %></td>
+        <td><%= post.image %></td>
+        <td><%= post.public %></td>
+        <td><%= link_to 'Show', post_path(post) %></td>
+    </tr>
+<% end %>
+</table>

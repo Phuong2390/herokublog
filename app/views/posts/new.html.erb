@@ -1,0 +1,27 @@
+<% provide(:title, 'Add Post') %>
+<h1>Add Post</h1>
+<%= form_for :post, url: posts_path do |f| %>
+<p>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %><br/>
+</p>
+<p>
+    <%= f.label :summary%><br/>
+    <%= f.text_field :summary %><br/>
+</p>
+<p>
+    <%= f.label :content%><br/>
+    <%= f.text_area :content %><br/>
+</p>
+<p>
+    <%= f.label :image %><br/>
+    <%= f.text_area :image %><br/>
+</p>
+<p>
+    <%= f.label :public %>
+    <%= f.check_box :public %><br/>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>

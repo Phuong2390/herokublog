@@ -1,0 +1,15 @@
+<h1>Post#Show</h1>
+<p>
+ID: <%= @post.id %>
+</p>
+<p>
+Title: <%= @post.title %>
+</p>
+<p>
+Coontent: <%= @post.content %>
+</p>
+
+<hr>
+<%= link_to 'Back', root_path %> &nbsp;&nbsp;&nbsp;
+<%= link_to "Edit", edit_post_path(@post) %> &nbsp;&nbsp;&nbsp;
+<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
