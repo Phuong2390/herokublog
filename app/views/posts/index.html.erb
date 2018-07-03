@@ -7,24 +7,23 @@
   <!-- Blog entry -->
   <% @posts.each do |post| %>
   <div class="w3-card-4 w3-margin w3-white">
-   
-    <image style="width: 30%" <%= image_tag post.image_url.to_s %>
-    <div class="w3-container">
+  <div class="w3-container">
       <h3><b><%= post.title %></b></h3>
       <h5>Đăng tải <span class="w3-opacity"><%= time_ago_in_words(post.created_at)%> trước</span></h5>
     </div>
+    <image style="width: 30%; padding-left: 10px;" <%= image_tag post.image_url.to_s %>
     <div class="w3-container">
+      <p>Tag: <%= post.all_tags %></p>
       <p><%= truncate(post.content, :length => 50) %></p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p><button class="w3-button w3-padding-large w3-white w3-border"><b><%= link_to 'READ MORE »', post_path(post) %></b></button></p>
         </div>
         <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+          <p><span class="w3-padding-large w3-right"><%= post.comments.count %> <b>Comments</b> <span class="w3-tag"></span></span></p>
         </div>
       </div>
     </div>
-     
   </div>
   <% end %>
 <!-- END BLOG ENTRIES -->
@@ -76,11 +75,10 @@
       <h4>Tags</h4>
     </div>
     <div class="w3-container w3-white">
-    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
-      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    <p>
+          <% @posts.each do |post| %>
+              &nbsp;<span class="badge badge-info"><%=post.all_tags %></span> 
+          <% end %>
     </p>
     </div>
   </div>

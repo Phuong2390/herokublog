@@ -1,33 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="">
-            <div class="card">
-                <h2><%= @post.title %>
-                <% if logged_in? %>
-                    <%= link_to "Edit Post", edit_post_path(@post) %>
-                    <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-                <h2>
-                
-                <h5>(<%= time_ago_in_words(@post.created_at)%>)</h5>
-                <div class="fakeimg" ><%= image_tag @post.image_url.to_s %></div>
-                <p><%= @post.content %></p>
-                <p>
-                    <div class="page-header">
-                        
-                    </div>
-                   
-                    <div class="page-header"> 
-                    </div>
-                    <div>
-                        <h1>Add a comment </h1>
-                         
-                    </div>  
-                </p>
-            </div>  
-        <div>
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+            <h1><%= @post.title %></h1>
+            <h4>Update at <%= time_ago_in_words(@post.created_at)%></h4>
+            <div class="fakeimg"><%= image_tag @post.image_url.to_s %></div>
+            <p>Tag: <%= @post.all_tags %></p>
+            <p><%= @post.content %></p>
+        </div>
     </div>
 </div>
+<h2> <%= @post.comments.count %> Comments</h2>
+<%= render @post.comments %>
+<h1>Add a comment </h1>
+
+<%= render 'comments/form' %>
+
 <%= link_to 'Back', root_path %> &nbsp;&nbsp;&nbsp;
 <%= link_to "Edit", edit_post_path(@post) %> &nbsp;&nbsp;&nbsp;
 <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>

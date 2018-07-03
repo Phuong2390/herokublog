@@ -1,0 +1,15 @@
+<div class="comments-list">
+    <div class="media">
+        <p class="pull-right"><small>(<%= time_ago_in_words(comment.created_at)%>)</small></p>
+            <a class="media-left" href="#">
+                <img src="http://lorempixel.com/40/40/people/1/">
+            </a>
+            <div class="media-body">
+                  <h4 class="media-heading user_name"><%= comment.name %></h4>
+                  <p><%= comment.content %></p>
+            <p><small><a href="">Reply</a>
+            <% if logged_in? %>
+                  <%= link_to '-Delete', [comment.post,comment],method: :delete, data: {confirm: 'Are you sure?'} %>
+            <% end %></small></p>
+    </div>
+</div>

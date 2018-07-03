@@ -1,3 +1,41 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Left column */
+* {
+    box-sizing: border-box;
+}
+.leftcolumn {   
+    float: center;
+    width: 100%;
+}
+/* Fake image */
+.fakeimg {
+    background-color:#aaa;
+    width: 100%;
+    padding: 20px;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Set black background color, white text and some padding */
+footer {
+    background-color: gainsboro;
+    color: white;
+    padding: 15px;
+  }

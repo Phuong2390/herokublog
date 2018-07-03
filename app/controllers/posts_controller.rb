@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
    before_action :find_post, only: [:show, :edit, :update, :destroy]
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.all.where(["title LIKE ?", "%#{params[:search]}%"])
   end
 
   def new
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :summary, :content, :public)
+    params.require(:post).permit(:title, :summary, :image, :content, :all_tags, :public, :term)
   end
 
 end

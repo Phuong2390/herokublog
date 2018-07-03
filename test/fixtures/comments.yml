@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  name: MyString
+  content: MyString
+  parent_id: 1
+  post: one
+
+two:
+  email: MyString
+  name: MyString
+  content: MyString
+  parent_id: 1
+  post: two

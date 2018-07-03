@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root 'posts#index'
   get '/new', to: 'posts#new'
   get '/edit', to: 'posts#edit'
-  resources :posts
+  
+  resources :posts do
+    resources :comments
+  end
 
   get 'sessions/new'
   get  '/help',    to: 'static_pages#help'
