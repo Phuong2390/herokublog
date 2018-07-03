@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.0'
 gem 'bcrypt',         '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
 gem 'carrierwave', '~> 1.0'
+gem 'rails_12factor', group: :production
 gem 'mini_magick'
 gem 'puma' 
 gem 'sass-rails',   '5.0.6'
@@ -18,7 +19,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
+  gem 'sqlite3', '1.3.13', group: :development
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
@@ -38,7 +39,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.0'
+  gem 'pg', '~> 1.0', group: :production
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
